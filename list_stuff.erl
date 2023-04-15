@@ -30,9 +30,9 @@ print_list([H | T]) ->
 reverse([]) -> [];
 reverse([H | T]) -> reverse(T) ++ [H].
 
-reverse_deep(X, 0) -> reverse(X).
-reverse_deep([], N) -> [];
-reverse_deep([[X | Xs] | T, N]) ->
+reverse_deep(X, 0) -> reverse(X);
+reverse_deep([], _) -> [];
+reverse_deep([[X | Xs] | T], N) ->
     reverse_deep(T, N) ++ [reverse_deep([X | Xs] , N - 1)];
 reverse_deep([H | T], N) -> 
     reverse_deep(T, N) ++ [H].
